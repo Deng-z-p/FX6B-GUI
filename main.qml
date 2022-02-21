@@ -3,6 +3,7 @@ import QtQuick.Window 2.12
 import QtQuick.Controls 2.5
 import "./desktop"
 import "./calculator"
+import "./benchmark"
 
 Window {
     id: mainWindow
@@ -55,6 +56,7 @@ Window {
             orientation: ListView.Horizontal
             WinStyleDesktop{}
             Calculator{}
+            Benchmark{}
             onCurrentIndexChanged: {
                 mainSwipeView.currentItem.visible = true
                 for(var i=0; i<mainSwipeView.count; i++){

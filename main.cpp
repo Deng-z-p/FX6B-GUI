@@ -1,11 +1,20 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QFont>
+#include "benchmark/benchmark.h"
 
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
+
+    QFont font = app.font();
+    font.setPixelSize(25);
+    font.setStyle(QFont::StyleItalic);
+    app.setFont(font);
+
+    qmlRegisterType<Benchmark>("Package.benchmark", 1, 0, "Benchmark");
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));

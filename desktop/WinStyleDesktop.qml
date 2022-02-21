@@ -76,6 +76,9 @@ Item {
                     anchors.rightMargin: 100
                     width: 150
                     height: 100
+                    onClicked: {
+                        mainSwipeView.setCurrentIndex(2)
+                    }
                     Text {
                         text: qsTr("BenchMark")
                         color: "white"

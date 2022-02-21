@@ -46,5 +46,6 @@
         <file>desktop/images/poweroff.png</file>
         <file>desktop/images/reboot.png</file>
         <file>desktop/images/second.png</file>
+        <file>benchmark/Benchmark.qml</file>
     </qresource>
 </RCC>
