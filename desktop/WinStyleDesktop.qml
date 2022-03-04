@@ -16,33 +16,33 @@ Item {
                 id: first
                 anchors.fill: parent
                 Text {
-                    id: tips2
                     text: qsTr("App")
                     color: "white"
-                    font.pixelSize: 17
+                    font.pixelSize: 15
                     font.bold: true
-                    anchors.top: parent.top
-                    anchors.topMargin: 10
+                    anchors.bottom: calculator_app.top
+                    anchors.bottomMargin: 10
                     anchors.left: calculator_app.left
                 }
                 Text {
-                    id: tips3
-                    text: qsTr("Text")
+                    text: qsTr("Test")
                     color: "white"
-                    font.pixelSize: 17
+                    font.pixelSize: 15
                     font.bold: true
-                    anchors.top: parent.top
-                    anchors.topMargin: 10
+                    anchors.bottom: benchmark_app.top
+                    anchors.bottomMargin: 10
                     anchors.left: benchmark_app.left
                 }
+
                 Button{
                     id:calculator_app
-                    anchors.top: parent.top
-                    anchors.topMargin: 50
-                    anchors.right: parent.horizontalCenter
-                    anchors.rightMargin: 50
-                    width: 100
-                    height: 100
+                    anchors{
+                        top: parent.top; topMargin: parent.height/10
+                        left: parent.left; leftMargin: parent.width/25
+                    }
+                    width: parent.width/6
+                    height: parent.height/4
+
                     onClicked: {
                         mainSwipeView.setCurrentIndex(1)
                     }
@@ -53,29 +53,30 @@ Item {
                     Text{
                         text: qsTr("calculator")
                         color: "white"
-                        font.pixelSize: 15
+                        font.pixelSize: 13
                         font.bold: true
-                        anchors.left: parent.left
-                        anchors.bottom: parent.bottom
-                        anchors.leftMargin: 3
-                        anchors.bottomMargin: 3
+                        anchors{
+                            left: parent.left; leftMargin: 3
+                            bottom: parent.bottom; bottomMargin: 3
+                        }
                     }
                     style:ButtonStyle{
                         background: Rectangle{
                             color: "#0072C5"
-                            border.color: "#BBBBBBBB"
+                            border.color: "white"
                             border.width: control.hovered ? 1 : 0
                         }
                     }
                 }
                 Button{
                     id: benchmark_app
-                    anchors.top: parent.top
-                    anchors.topMargin: 50
-                    anchors.right: parent.right
-                    anchors.rightMargin: 100
-                    width: 150
-                    height: 100
+                    anchors{
+                        top: parent.top; topMargin: parent.height/10
+                        right: parent.right; rightMargin: parent.width/25
+                    }
+                    width: parent.width/4
+                    height: parent.height/4
+
                     onClicked: {
                         mainSwipeView.setCurrentIndex(2)
                     }
@@ -84,24 +85,79 @@ Item {
                         color: "white"
                         font.pixelSize: 15
                         font.bold: true
-                        anchors.bottom: parent.bottom
-                        anchors.bottomMargin: 3
-                        anchors.left: parent.left
-                        anchors.leftMargin: 3
+                        anchors{
+                            left: parent.left; leftMargin: 3
+                            bottom: parent.bottom; bottomMargin: 3
+                        }
                     }
                     style: ButtonStyle{
                         background: Rectangle{
                             color: "#CA2C2B"
-                            border.color: "#BBBBBBBB"
+                            border.color: "white"
+                            border.width: control.hovered ? 1 : 0
+                        }
+                    }
+                }
+                Button{
+                    id: video_app
+                    anchors{
+                        top: calculator_app.bottom; topMargin: parent.height/30
+                        left: calculator_app.left
+                    }
+                    width: parent.width/6
+                    height: parent.height/4
+
+                    onClicked: { mainSwipeView.setCurrentIndex(3)}
+                    Image {}
+                    Text{
+                        text: qsTr("video")
+                        color: "white"
+                        font.pixelSize: 15
+                        font.bold: true
+                        anchors{
+                            left: parent.left; leftMargin: 3
+                            bottom: parent.bottom; bottomMargin: 3
+                        }
+                    }
+                    style: ButtonStyle{
+                        background: Rectangle{
+                            color: "#0072C5"
+                            border.color: "white"
+                            border.width: control.hovered ? 1 : 0
+                        }
+                    }
+                }
+                Button{
+                    id: fileview_app
+                    anchors{
+                        top: parent.top; topMargin: parent.height/10
+                        left: calculator_app.right; leftMargin: parent.width/45
+                    }
+                    width: parent.width/6
+                    height: parent.height/4
+
+                    onClicked: {mainSwipeView.setCurrentIndex(4)}
+                    Image {}
+                    Text {
+                        text: qsTr("File")
+                        color: "white"
+                        font.pixelSize: 15
+                        font.bold: true
+                        anchors{
+                            left: parent.left; leftMargin: 3
+                            bottom: parent.bottom; bottomMargin: 3
+                        }
+                    }
+                    style: ButtonStyle{
+                        background: Rectangle{
+                            color: "#0072C5"
+                            border.color: "white"
                             border.width: control.hovered ? 1 : 0
                         }
                     }
                 }
             }
         }
-//        Item{
-//            id: secondPage
-//        }
     }
 
     PageIndicator {

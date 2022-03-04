@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QFont>
 #include "benchmark/benchmark.h"
+#include "fileview/fileio.h"
 
 int main(int argc, char *argv[])
 {
@@ -15,6 +16,7 @@ int main(int argc, char *argv[])
     app.setFont(font);
 
     qmlRegisterType<Benchmark>("Package.benchmark", 1, 0, "Benchmark");
+    qmlRegisterType<FileIO>("Package.fileio", 1, 0, "FileIO");
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));

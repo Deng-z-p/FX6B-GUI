@@ -5,6 +5,7 @@ import Package.benchmark 1.0
 
 Item {
     id: benmarkItem
+    visible: false
     Benchmark {
         id: benchmark
         onBenchmark_resulttext_Changed:{
@@ -19,7 +20,7 @@ Item {
     Rectangle {
         id: choice_Area
         width: 200; height: parent.height
-        color: "#1f1e58"
+        color: "#1F1E58"
         ButtonGroup {id: radioGroup}
         /*Add all RadioButton to one ButtonGroup,
         for easy to management and to get the text which cheched one*/

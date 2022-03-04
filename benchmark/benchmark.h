@@ -10,7 +10,9 @@ class Benchmark : public QObject
 public:
     Benchmark(QObject *parent = 0);
     ~Benchmark();
-    Q_PROPERTY(QString benchmark_resulttext MEMBER m_benchmark_resulttext NOTIFY benchmark_resulttext_Changed);
+    Q_PROPERTY(QString benchmark_resulttext
+               MEMBER m_benchmark_resulttext
+               NOTIFY benchmark_resulttext_Changed);
 public slots:
     void benchmark_test_start(QString name, QStringList arg);
     void benchmark_test_stop();

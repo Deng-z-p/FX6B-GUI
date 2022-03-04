@@ -4,16 +4,22 @@ import QtQuick.Controls 2.5
 import "./desktop"
 import "./calculator"
 import "./benchmark"
+import "./video"
+import "./fileview"
 
 Window {
     id: mainWindow
     visible: true
-    width: 800
-    height: 480
+    width: 480
+    height: 272
+    Item {
+        id: theme
+        property string themecolor: "#1f1e58"
+    }
 
     Rectangle {
         anchors.fill: parent
-        color: "#1f1e58"
+        color: theme.themecolor
     }
 
     RoundButton {
@@ -57,6 +63,8 @@ Window {
             WinStyleDesktop{}
             Calculator{}
             Benchmark{}
+            Video{}
+            Fileview{}
             onCurrentIndexChanged: {
                 mainSwipeView.currentItem.visible = true
                 for(var i=0; i<mainSwipeView.count; i++){

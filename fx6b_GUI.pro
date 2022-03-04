@@ -14,6 +14,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         benchmark/benchmark.cpp \
+        fileview/fileio.cpp \
         main.cpp
 
 RESOURCES += qml.qrc
@@ -30,4 +31,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    benchmark/benchmark.h
+    benchmark/benchmark.h \
+    fileview/fileio.h
+
+DISTFILES += \
+
+
+

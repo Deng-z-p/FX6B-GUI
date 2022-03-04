@@ -47,5 +47,17 @@
         <file>desktop/images/reboot.png</file>
         <file>desktop/images/second.png</file>
         <file>benchmark/Benchmark.qml</file>
+        <file>video/Video.qml</file>
+        <file>video/images/btn_fullscreen.png</file>
+        <file>video/images/btn_next.png</file>
+        <file>video/images/btn_pause.png</file>
+        <file>video/images/btn_play.png</file>
+        <file>video/images/btn_screen.png</file>
+        <file>video/images/btn_volumedown.png</file>
+        <file>video/images/btn_volumeup.png</file>
+        <file>fileview/Fileview.qml</file>
+        <file>fileview/images/folder.png</file>
+        <file>fileview/images/next.png</file>
+        <file>fileview/images/other_file.png.png</file>
     </qresource>
 </RCC>
