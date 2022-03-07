@@ -3,6 +3,7 @@
 #include <QFont>
 #include "benchmark/benchmark.h"
 #include "fileview/fileio.h"
+#include "video/video.h"
 
 int main(int argc, char *argv[])
 {
@@ -17,6 +18,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<Benchmark>("Package.benchmark", 1, 0, "Benchmark");
     qmlRegisterType<FileIO>("Package.fileio", 1, 0, "FileIO");
+    qmlRegisterType<Video>("Package.video", 1, 0, "Video");
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));

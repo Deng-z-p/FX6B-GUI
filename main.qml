@@ -35,7 +35,7 @@ Window {
 
         Image {
             anchors.centerIn: parent
-            source: "qrc:/desktop/images/back.png"
+            source: "qrc:/desktop/icons/back.png"
         }
 
         MouseArea {

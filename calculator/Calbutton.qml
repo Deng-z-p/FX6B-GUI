@@ -62,9 +62,8 @@ Item {
     property bool backSpaceDisplay: false
     property real btnOpacity: 1
 
-    width:(calculator.width/* - 4 * 16*/) / 5
-    //height: smallScreen ? 42 : 80
-    height: 42
+    width:(calculator.width) / 5
+    height:calculator.height/2/4
 	Rectangle {
         color: btnBg
         width: parent.width
@@ -77,7 +76,7 @@ Item {
             width: 50
             height: 40
             id: backSpaceIcon
-            source: backSpaceDisplay ? "qrc:/calculator/images/backspace.png" : ""
+            source: backSpaceDisplay ? "qrc:/calculator/icons/clean.png" : ""
         }
     }
 

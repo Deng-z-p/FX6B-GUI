@@ -15,7 +15,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         benchmark/benchmark.cpp \
         fileview/fileio.cpp \
-        main.cpp
+        main.cpp \
+        video/video.cpp
 
 RESOURCES += qml.qrc
 
@@ -32,9 +33,11 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     benchmark/benchmark.h \
-    fileview/fileio.h
+    fileview/fileio.h \
+    video/video.h
 
-DISTFILES += \
+DISTFILES += \ \
+
 
 
 

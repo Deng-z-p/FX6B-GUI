@@ -79,7 +79,7 @@ Item {
                     anchors.left: parent.left; anchors.leftMargin: 15
                     anchors.verticalCenter: parent.verticalCenter
                     width: 59; height: 48
-                    source: folderModel.get(index, "fileIsDir") ? "qrc:/fileview/images/folder.png" : "qrc:/fileview/images/other_file.png.png"
+                    source: folderModel.get(index, "fileIsDir") ? "qrc:/fileview/icons/folder_file.png" : "qrc:/fileview/icons/other_file.png"
                 }
                 Text {
                     text: fileName

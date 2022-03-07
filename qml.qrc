@@ -2,62 +2,21 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>desktop/WinStyleDesktop.qml</file>
-        <file>desktop/winstyleicons/3dcube_app.png</file>
-        <file>desktop/winstyleicons/aircondition_app.png</file>
-        <file>desktop/winstyleicons/alarm_app.png</file>
-        <file>desktop/winstyleicons/album_app.png</file>
-        <file>desktop/winstyleicons/calc_app.png</file>
-        <file>desktop/winstyleicons/camera_app.png</file>
-        <file>desktop/winstyleicons/file_app.png</file>
-        <file>desktop/winstyleicons/iotest_app.png</file>
-        <file>desktop/winstyleicons/media_app.png</file>
-        <file>desktop/winstyleicons/music_app_icon.png</file>
-        <file>desktop/winstyleicons/radio_app.png</file>
-        <file>desktop/winstyleicons/sensor_app.png</file>
-        <file>desktop/winstyleicons/settings_app.png</file>
-        <file>desktop/winstyleicons/system_app.png</file>
-        <file>desktop/winstyleicons/tcp_c.png</file>
-        <file>desktop/winstyleicons/tcp_s.png</file>
-        <file>desktop/winstyleicons/udpchat_app.png</file>
-        <file>desktop/winstyleicons/weather_app_cloudy.png</file>
-        <file>desktop/winstyleicons/weather_app_fine.png</file>
-        <file>desktop/winstyleicons/weather_app_rain.png</file>
-        <file>desktop/winstyleicons/weather_app_snow.png</file>
-        <file>desktop/winstyleicons/wirless_app.png</file>
         <file>calculator/Calbutton.qml</file>
         <file>calculator/calculator.js</file>
         <file>calculator/Calculator.qml</file>
         <file>calculator/Display.qml</file>
         <file>calculator/NumberPad.qml</file>
-        <file>calculator/images/backspace.png</file>
-        <file>desktop/images/alientek.png</file>
-        <file>desktop/images/back.png</file>
-        <file>desktop/images/bell.png</file>
-        <file>desktop/images/bgTime.png</file>
-        <file>desktop/images/bgWeather.png</file>
-        <file>desktop/images/center.png</file>
-        <file>desktop/images/clock.png</file>
-        <file>desktop/images/clock-night.png</file>
-        <file>desktop/images/close.png</file>
-        <file>desktop/images/hour.png</file>
-        <file>desktop/images/minute.png</file>
-        <file>desktop/images/pause.png</file>
-        <file>desktop/images/play.png</file>
-        <file>desktop/images/poweroff.png</file>
-        <file>desktop/images/reboot.png</file>
-        <file>desktop/images/second.png</file>
         <file>benchmark/Benchmark.qml</file>
         <file>video/Video.qml</file>
-        <file>video/images/btn_fullscreen.png</file>
-        <file>video/images/btn_next.png</file>
-        <file>video/images/btn_pause.png</file>
-        <file>video/images/btn_play.png</file>
-        <file>video/images/btn_screen.png</file>
-        <file>video/images/btn_volumedown.png</file>
-        <file>video/images/btn_volumeup.png</file>
         <file>fileview/Fileview.qml</file>
-        <file>fileview/images/folder.png</file>
-        <file>fileview/images/next.png</file>
-        <file>fileview/images/other_file.png.png</file>
+        <file>desktop/icons/calculator.png</file>
+        <file>desktop/icons/folder.png</file>
+        <file>desktop/icons/video.png</file>
+        <file>fileview/icons/folder_file.png</file>
+        <file>fileview/icons/other_file.png</file>
+        <file>desktop/icons/back.png</file>
+        <file>desktop/icons/benchmark.png</file>
+        <file>calculator/icons/clean.png</file>
     </qresource>
 </RCC>

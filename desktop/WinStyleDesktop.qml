@@ -48,23 +48,25 @@ Item {
                     }
                     Image {
                         anchors.centerIn: parent
-                        source: "qrc:/desktop/winstyleicons/calc_app.png"
+                        width: calculator_app.width/5*4; height: calculator_app.height/5*4
+                        source: "qrc:/desktop/icons/calculator.png"
                     }
                     Text{
-                        text: qsTr("calculator")
-                        color: "white"
-                        font.pixelSize: 13
+                        text: "calculator"
+                        color: "black"
+                        font.pixelSize: 12
                         font.bold: true
                         anchors{
                             left: parent.left; leftMargin: 3
-                            bottom: parent.bottom; bottomMargin: 3
+                            bottom: parent.bottom;
                         }
+
                     }
                     style:ButtonStyle{
                         background: Rectangle{
-                            color: "#0072C5"
                             border.color: "white"
                             border.width: control.hovered ? 1 : 0
+                            radius: 10
                         }
                     }
                 }
@@ -80,21 +82,26 @@ Item {
                     onClicked: {
                         mainSwipeView.setCurrentIndex(2)
                     }
+                    Image {
+                        anchors.centerIn: parent
+                        width: benchmark_app.width/5*4; height: benchmark_app.height/5*4
+                        source: "qrc:/desktop/icons/benchmark.png"
+                    }
                     Text {
                         text: qsTr("BenchMark")
-                        color: "white"
-                        font.pixelSize: 15
+                        color: "black"
+                        font.pixelSize: 12
                         font.bold: true
                         anchors{
                             left: parent.left; leftMargin: 3
-                            bottom: parent.bottom; bottomMargin: 3
+                            bottom: parent.bottom;
                         }
                     }
                     style: ButtonStyle{
                         background: Rectangle{
-                            color: "#CA2C2B"
                             border.color: "white"
                             border.width: control.hovered ? 1 : 0
+                            radius: 10
                         }
                     }
                 }
@@ -108,22 +115,26 @@ Item {
                     height: parent.height/4
 
                     onClicked: { mainSwipeView.setCurrentIndex(3)}
-                    Image {}
+                    Image {
+                        anchors.centerIn: parent
+                        width: video_app.width/5*4; height: video_app.height/5*4
+                        source: "qrc:/desktop/icons/video.png"
+                    }
                     Text{
                         text: qsTr("video")
-                        color: "white"
-                        font.pixelSize: 15
+                        color: "black"
+                        font.pixelSize: 12
                         font.bold: true
                         anchors{
                             left: parent.left; leftMargin: 3
-                            bottom: parent.bottom; bottomMargin: 3
+                            bottom: parent.bottom;
                         }
                     }
                     style: ButtonStyle{
                         background: Rectangle{
-                            color: "#0072C5"
                             border.color: "white"
                             border.width: control.hovered ? 1 : 0
+                            radius: 10
                         }
                     }
                 }
@@ -137,22 +148,26 @@ Item {
                     height: parent.height/4
 
                     onClicked: {mainSwipeView.setCurrentIndex(4)}
-                    Image {}
+                    Image {
+                        anchors.centerIn: parent
+                        width: fileview_app.width/5*4; height: fileview_app.height/5*4
+                        source: "qrc:/desktop/icons/folder.png"
+                    }
                     Text {
                         text: qsTr("File")
-                        color: "white"
-                        font.pixelSize: 15
+                        color: "black"
+                        font.pixelSize: 12
                         font.bold: true
                         anchors{
                             left: parent.left; leftMargin: 3
-                            bottom: parent.bottom; bottomMargin: 3
+                            bottom: parent.bottom;
                         }
                     }
                     style: ButtonStyle{
                         background: Rectangle{
-                            color: "#0072C5"
                             border.color: "white"
                             border.width: control.hovered ? 1 : 0
+                            radius: 10
                         }
                     }
                 }

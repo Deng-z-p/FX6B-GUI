@@ -91,7 +91,7 @@ Item {
 
     Display {
         id: display
-        height: 80
+        height: parent.height / 2
         anchors.horizontalCenter: parent.horizontalCenter
         width: numPad.width
         anchors.bottom: numPad.top

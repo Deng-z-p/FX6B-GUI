@@ -1,29 +1,17 @@
 import QtQuick 2.12
 import Qt.labs.folderlistmodel 2.12
 import QtQuick.Controls 2.5
-import QtQuick.Controls 1.2
-import QtQuick.Controls.Styles 1.4
-import QtQuick.Layouts 1.12
+import Package.video 1.0
 
 Item {
     id: videoItem
+    Video{id: m_video}
     Rectangle{
-        id: video_Play_Area
-        width: parent.width-150; height: parent.height-50
-        anchors{
-            top: parent.top
-            left: parent.left
-        }
-        color: "black"
-    }
-    Rectangle{
-        id: video_Item_Area
-        width: 150; height: parent.height-50
-        anchors{
-            top: parent.top
-            right: parent.right
-        }
-        color: "#1F1E58"
+        id: video_Area
+        objectName: "video_Area"
+        anchors.fill: parent
+        width: parent.width; height: parent.height
+        color: theme.themecolor
         ListView{
             id: listFileView
             anchors.fill: parent
@@ -36,64 +24,49 @@ Item {
             }
 
             delegate: Rectangle{
-                height: 30; width: parent.width
+                height: 50; width: parent.width
                 color: "#1F1E58"
                 Text {
-                    anchors.fill: parent
+                    anchors.centerIn: parent
                     text: fileBaseName
                     color: "white"
                     font.pixelSize: 20
                 }
+                Rectangle{
+                   anchors.left: parent.left
+                   anchors.leftMargin: 30
+                   anchors.right: parent.right
+                   anchors.rightMargin: 30
+                   width: parent.width; height: 1
+                   color: "yellow"
+                }
                 MouseArea{
                     anchors.fill: parent
                     onClicked: {
-                        console.log(folderModel.get(index, "filePath"))
+                        //console.log(folderModel.get(index, "filePath"))
+                        rec_Exit.visible = true
+                        backBtn.visible = false
+                        m_video.mplayer_play(folderModel.get(index, "filePath"),
+                                             video_Area.width,
+                                             video_Area.height)
                     }
                 }
             }
         }
-    }
-    Rectangle{
-        id: video_btn_Area
-        width: parent.width; height: 50
-        anchors{
-            bottom: parent.bottom
-            left: parent.left
-        }
-        color: "#141414"
-        Button{
-            id: play
-            width: 44; height: 44
-            anchors{
-                left: parent.left; leftMargin: 10
-            }
-            Image {
-                anchors.centerIn: parent
-                source: "qrc:/video/images/btn_play.png"
+        Rectangle{
+            id: rec_Exit
+            visible: false
+            anchors.fill: video_Area
+            color: theme.themecolor
+            MouseArea{
+                anchors.fill: parent
+                onClicked:{
+                    console.log("exit video play")
+                    m_video.mplayer_exit()
+                    backBtn.visible = true
+                    rec_Exit.visible = false
+                }
             }
         }
-        Button{
-            id: next
-            width: 44; height: 44
-            anchors{
-                left: play.right; rightMargin: 20
-            }
-            Image {
-                anchors.centerIn: parent
-                source: "qrc:/video/images/btn_next.png"
-            }
-        }
-        Button{
-            id: fullscreen
-            width: 44; height: 44
-            anchors{
-                right: parent.right; rightMargin: 10
-            }
-            Image {
-                anchors.centerIn: parent
-                source: "qrc:/video/images/btn_fullscreen.png"
-            }
-        }
-
     }
 }

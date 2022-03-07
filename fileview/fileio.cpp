@@ -16,7 +16,7 @@ FileIO::~FileIO()
 {
     workerTh->quit();
     if(workerTh->wait(100)){
-        qDebug()<<"Thread end"<<endl;
+        //qDebug()<<"FileIO Thread end"<<endl;
     }
 }
 
@@ -38,7 +38,7 @@ void FileIO::handleResults()
     emit sourceChanged();
     workerTh->quit();
     if(workerTh->wait(100)){
-        qDebug()<<"Thread end"<<endl;
+        qDebug()<<"FileIO Thread end"<<endl;
     }
 }
 
