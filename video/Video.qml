@@ -20,7 +20,7 @@ Item {
                 id: folderModel
                 nameFilters: ["*.avi", "*.mp4", "*.flv"]
                 showDirs: false
-                folder: "file:///media/"
+                folder: "file:///media/video/"
             }
 
             delegate: Rectangle{

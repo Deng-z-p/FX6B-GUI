@@ -18,5 +18,7 @@
         <file>desktop/icons/back.png</file>
         <file>desktop/icons/benchmark.png</file>
         <file>calculator/icons/clean.png</file>
+        <file>desktop/icons/album.png</file>
+        <file>album/Album.qml</file>
     </qresource>
 </RCC>

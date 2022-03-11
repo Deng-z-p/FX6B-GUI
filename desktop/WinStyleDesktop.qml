@@ -64,6 +64,7 @@ Item {
                     }
                     style:ButtonStyle{
                         background: Rectangle{
+                            color: "cadetblue"
                             border.color: "white"
                             border.width: control.hovered ? 1 : 0
                             radius: 10
@@ -99,6 +100,7 @@ Item {
                     }
                     style: ButtonStyle{
                         background: Rectangle{
+                            color: "cadetblue"
                             border.color: "white"
                             border.width: control.hovered ? 1 : 0
                             radius: 10
@@ -127,16 +129,51 @@ Item {
                         font.bold: true
                         anchors{
                             left: parent.left; leftMargin: 3
-                            bottom: parent.bottom;
+                            bottom: parent.bottom
                         }
                     }
                     style: ButtonStyle{
                         background: Rectangle{
+                            color: "cadetblue"
                             border.color: "white"
                             border.width: control.hovered ? 1 : 0
                             radius: 10
                         }
                     }
+                }
+                Button{
+                    id: album_app
+                    anchors{
+                        top:video_app.bottom; topMargin: parent.height/30
+                        left: calculator_app.left
+                    }
+                    width: parent.width/3 + parent.width/45
+                    height: parent.height/4
+                    onClicked: {mainSwipeView.setCurrentIndex(5)}
+                    Image {
+                        anchors.centerIn: parent
+                        width: album_app.width/5*4; height: album_app.height/5*4
+                        source: "qrc:/desktop/icons/album.png"
+                    }
+                    Text {
+                        text: "Album"
+                        color: "black"
+                        font.pixelSize: 12
+                        font.bold: true
+                        anchors{
+                            left: parent.left; leftMargin: 3
+                            bottom: parent.bottom
+                        }
+                    }
+                    style: ButtonStyle{
+                        background: Rectangle{
+                            color: "cadetblue"
+                            border.color: "white"
+                            border.width: control.hovered ? 1 : 0
+                            radius: 10
+                        }
+                    }
+
                 }
                 Button{
                     id: fileview_app
@@ -165,6 +202,7 @@ Item {
                     }
                     style: ButtonStyle{
                         background: Rectangle{
+                            color: "cadetblue"
                             border.color: "white"
                             border.width: control.hovered ? 1 : 0
                             radius: 10

@@ -6,12 +6,13 @@ import "./calculator"
 import "./benchmark"
 import "./video"
 import "./fileview"
+import "./album"
 
 Window {
     id: mainWindow
     visible: true
-    width: 480
-    height: 272
+    width: 1280
+    height: 800
     Item {
         id: theme
         property string themecolor: "#1f1e58"
@@ -65,6 +66,7 @@ Window {
             Benchmark{}
             Video{}
             Fileview{}
+            Album{}
             onCurrentIndexChanged: {
                 mainSwipeView.currentItem.visible = true
                 for(var i=0; i<mainSwipeView.count; i++){
