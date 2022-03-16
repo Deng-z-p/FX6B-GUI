@@ -17,7 +17,7 @@ Item {
     Rectangle {
         id: myFileView
         anchors.fill: parent
-        color: theme.themecolor
+        color: theme.theme_bkg_color
 
         property string folderPathName: "file:/"
         property string currentPathName
@@ -40,7 +40,7 @@ Item {
                     id: pathText
                     anchors.centerIn: parent
                     text: myPathName
-                    color: parent.ListView.isCurrentItem ? "white": "#25cfea"
+                    color: parent.ListView.isCurrentItem ? "coral": "red"
                 }
                 Text {
                     visible: false
@@ -83,7 +83,7 @@ Item {
                 }
                 Text {
                     text: fileName
-                    color: "white"
+                    color: theme.theme_font_color
                     anchors{
                         left: folderIcon.right; leftMargin: 10
                         verticalCenter: parent.verticalCenter
@@ -108,6 +108,7 @@ Item {
                                 case "sh":
                                 case "conf":
                                 case "xml":
+                                case "html":
                                     break;
                                 default:
                                     warningText.text = "Sorry, Failed to open file type"
@@ -151,7 +152,7 @@ Item {
             height: parent.height/5
             background: Rectangle{
                 anchors.fill: parent
-                color: theme.themecolor
+                color: theme.theme_bkg_color
                 radius: 20
             }
             Text {
@@ -159,7 +160,7 @@ Item {
                 anchors.top: parent.top
                 width: parent.width
                 color: "red"
-                font.pixelSize: 18
+                font.pixelSize: theme.theme_font_size + 10
             }
         }
         Dialog{
@@ -169,7 +170,7 @@ Item {
             width: parent.width; height: parent.height
             background: Rectangle{
                 anchors.fill: parent
-                color: theme.themecolor
+                color: theme.theme_bkg_color
             }
             Button{
                 anchors{
@@ -181,8 +182,8 @@ Item {
                     color: "transparent"
                 }
                 contentItem: Text {
-                    text: (">> Back")
-                    color: "white"
+                    text: ">> Back"
+                    color: theme.theme_font_color
                     font.bold: true
                 }
                 onClicked: {
@@ -200,7 +201,7 @@ Item {
                     Text {
                     id: readText
                     color: "green"
-                    font.pixelSize: 15
+                    font.pixelSize: theme.theme_font_size
                 }
                 ScrollBar.vertical: ScrollBar{}
                //ScrollBar.horizontal: ScrollBar{}

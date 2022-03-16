@@ -63,13 +63,12 @@ Item {
     property real btnOpacity: 1
 
     width:(calculator.width) / 5
-    height:calculator.height/2/4
+    height:(calculator.height - display.height) / 4
 	Rectangle {
         color: btnBg
         width: parent.width
         height:parent.height
         anchors.centerIn: parent
-//        radius: parent.width / 2
         opacity: btnOpacity
         Image {
             anchors.centerIn: parent

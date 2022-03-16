@@ -16,18 +16,18 @@ Item {
                 id: first
                 anchors.fill: parent
                 Text {
-                    text: qsTr("App")
-                    color: "white"
-                    font.pixelSize: 15
+                    text: "App"
+                    color: theme.theme_font_color
+                    font.pixelSize: theme.theme_font_size + 3
                     font.bold: true
                     anchors.bottom: calculator_app.top
                     anchors.bottomMargin: 10
                     anchors.left: calculator_app.left
                 }
                 Text {
-                    text: qsTr("Test")
-                    color: "white"
-                    font.pixelSize: 15
+                    text: "Test"
+                    color: theme.theme_font_color
+                    font.pixelSize: theme.theme_font_size + 3
                     font.bold: true
                     anchors.bottom: benchmark_app.top
                     anchors.bottomMargin: 10
@@ -53,8 +53,8 @@ Item {
                     }
                     Text{
                         text: "calculator"
-                        color: "black"
-                        font.pixelSize: 12
+                        color: theme.theme_font_color
+                        font.pixelSize: theme.theme_font_size
                         font.bold: true
                         anchors{
                             left: parent.left; leftMargin: 3
@@ -64,7 +64,7 @@ Item {
                     }
                     style:ButtonStyle{
                         background: Rectangle{
-                            color: "cadetblue"
+                            color: (theme.theme_bkg_color == "#1F1E58") ? "#2F2D84" : "#F0F0CD"
                             border.color: "white"
                             border.width: control.hovered ? 1 : 0
                             radius: 10
@@ -89,9 +89,9 @@ Item {
                         source: "qrc:/desktop/icons/benchmark.png"
                     }
                     Text {
-                        text: qsTr("BenchMark")
-                        color: "black"
-                        font.pixelSize: 12
+                        text: "BenchMark"
+                        color: theme.theme_font_color
+                        font.pixelSize: theme.theme_font_size
                         font.bold: true
                         anchors{
                             left: parent.left; leftMargin: 3
@@ -100,7 +100,7 @@ Item {
                     }
                     style: ButtonStyle{
                         background: Rectangle{
-                            color: "cadetblue"
+                            color: (theme.theme_bkg_color == "#1F1E58") ? "#2F2D84" : "#F0F0CD"
                             border.color: "white"
                             border.width: control.hovered ? 1 : 0
                             radius: 10
@@ -123,9 +123,9 @@ Item {
                         source: "qrc:/desktop/icons/video.png"
                     }
                     Text{
-                        text: qsTr("video")
-                        color: "black"
-                        font.pixelSize: 12
+                        text: "video"
+                        color: theme.theme_font_color
+                        font.pixelSize: theme.theme_font_size
                         font.bold: true
                         anchors{
                             left: parent.left; leftMargin: 3
@@ -134,7 +134,7 @@ Item {
                     }
                     style: ButtonStyle{
                         background: Rectangle{
-                            color: "cadetblue"
+                            color: (theme.theme_bkg_color == "#1F1E58") ? "#2F2D84" : "#F0F0CD"
                             border.color: "white"
                             border.width: control.hovered ? 1 : 0
                             radius: 10
@@ -157,8 +157,8 @@ Item {
                     }
                     Text {
                         text: "Album"
-                        color: "black"
-                        font.pixelSize: 12
+                        color: theme.theme_font_color
+                        font.pixelSize: theme.theme_font_size
                         font.bold: true
                         anchors{
                             left: parent.left; leftMargin: 3
@@ -167,7 +167,7 @@ Item {
                     }
                     style: ButtonStyle{
                         background: Rectangle{
-                            color: "cadetblue"
+                            color: (theme.theme_bkg_color == "#1F1E58") ? "#2F2D84" : "#F0F0CD"
                             border.color: "white"
                             border.width: control.hovered ? 1 : 0
                             radius: 10
@@ -191,9 +191,9 @@ Item {
                         source: "qrc:/desktop/icons/folder.png"
                     }
                     Text {
-                        text: qsTr("File")
-                        color: "black"
-                        font.pixelSize: 12
+                        text: "File"
+                        color: theme.theme_font_color
+                        font.pixelSize: theme.theme_font_size
                         font.bold: true
                         anchors{
                             left: parent.left; leftMargin: 3
@@ -202,7 +202,40 @@ Item {
                     }
                     style: ButtonStyle{
                         background: Rectangle{
-                            color: "cadetblue"
+                            color: (theme.theme_bkg_color == "#1F1E58") ? "#2F2D84" : "#F0F0CD"
+                            border.color: "white"
+                            border.width: control.hovered ? 1 : 0
+                            radius: 10
+                        }
+                    }
+                }
+                Button{
+                    id: settings_app
+                    anchors{
+                        top: benchmark_app.bottom; topMargin: parent.height/30
+                        left: benchmark_app.left
+                    }
+                    width: parent.width/6
+                    height: parent.height/4
+                    onClicked: {mainSwipeView.setCurrentIndex(6)}
+                    Image {
+                        anchors.centerIn: parent
+                        width: settings_app.width/5*4; height: video_app.height/5*4
+                        source: "qrc:/desktop/icons/settings.png"
+                    }
+                    Text {
+                        text: "settings"
+                        color: theme.theme_font_color
+                        font.pixelSize: theme.theme_font_size
+                        font.bold: true
+                        anchors{
+                            left: parent.left; leftMargin: 3
+                            bottom: parent.bottom
+                        }
+                    }
+                    style: ButtonStyle{
+                        background: Rectangle{
+                            color: (theme.theme_bkg_color == "#1F1E58") ? "#2F2D84" : "#F0F0CD"
                             border.color: "white"
                             border.width: control.hovered ? 1 : 0
                             radius: 10

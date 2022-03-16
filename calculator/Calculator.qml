@@ -55,28 +55,6 @@ Item {
     id: calculator
     visible: false
 
-//    onVisibleChanged: {
-//        formState.state == 'right' ? formState.state = '' : formState.state = 'right'
-//    }
-
-//    Item {
-////        id: formState
-////        states: State {
-////            name: "right"
-////            PropertyChanges {
-////                target: calculator
-////                x: 0
-////            }
-////        }
-////        transitions: Transition {
-//            NumberAnimation {
-//                property: "x"
-//                easing.type: Easing.InOutQuart
-//                duration: 500
-//            }
-////        }
-//    }
-
     function operatorPressed(operator) {
         CalcEngine.operatorPressed(operator)
         numPad.buttonPressed()
@@ -101,10 +79,5 @@ Item {
         id: numPad
         anchors.bottom: parent.bottom
         anchors.horizontalCenter: parent.horizontalCenter
-    }
-
-    Component.onCompleted: {
-        calculator.x = parent.width
-       // console.log("x is", parent.width)
     }
 }

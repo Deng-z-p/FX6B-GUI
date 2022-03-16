@@ -7,6 +7,7 @@ import "./benchmark"
 import "./video"
 import "./fileview"
 import "./album"
+import "./settings"
 
 Window {
     id: mainWindow
@@ -15,12 +16,14 @@ Window {
     height: 800
     Item {
         id: theme
-        property string themecolor: "#1f1e58"
+        property string theme_bkg_color: "#1F1E58"
+        property string theme_font_color: "white"
+        property int theme_font_size: 12
     }
 
     Rectangle {
         anchors.fill: parent
-        color: theme.themecolor
+        color: theme.theme_bkg_color
     }
 
     RoundButton {
@@ -67,6 +70,7 @@ Window {
             Video{}
             Fileview{}
             Album{}
+            Settings{}
             onCurrentIndexChanged: {
                 mainSwipeView.currentItem.visible = true
                 for(var i=0; i<mainSwipeView.count; i++){
@@ -76,4 +80,39 @@ Window {
             }
         }
     }
+//    Timer{
+//        id: initializing_Timer
+//        interval: 1000
+//        repeat: true
+//        running: true
+//        property int timerCount: 0
+//        onTriggered: {
+//            timerCount ++
+//            console.log("left-timer:", 4-timerCount)
+//            if(timerCount == 2){
+//                initializing_text.text = "Welcome"
+//            }
+//            if(timerCount == 4){
+//                initializing_item.visible = false
+//                initializing_Timer.running = false
+//            }
+//        }
+//    }
+
+//    Item{
+//        id: initializing_item
+//        anchors.fill: parent
+//        Rectangle{
+//            anchors.fill: parent
+//            color:theme.themecolor
+//            Text {
+//                id: initializing_text
+//                anchors.centerIn: parent
+//                text: "Initializing, Just a moment, Please"
+//                color: "white"
+//                font.pixelSize: 30
+//                font.bold: true
+//            }
+//        }
+//    }
 }

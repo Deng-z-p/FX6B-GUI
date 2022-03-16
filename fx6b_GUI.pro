@@ -17,6 +17,7 @@ SOURCES += \
         benchmark/benchmark.cpp \
         fileview/fileio.cpp \
         main.cpp \
+        settings/settings.cpp \
         video/video.cpp
 
 RESOURCES += qml.qrc
@@ -36,9 +37,11 @@ HEADERS += \
     album/album.h \
     benchmark/benchmark.h \
     fileview/fileio.h \
+    settings/settings.h \
     video/video.h
 
-DISTFILES += \ \
+DISTFILES += \
+
 
 
 

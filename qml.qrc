@@ -20,5 +20,10 @@
         <file>calculator/icons/clean.png</file>
         <file>desktop/icons/album.png</file>
         <file>album/Album.qml</file>
+        <file>desktop/icons/settings.png</file>
+        <file>settings/Settings.qml</file>
+        <file>settings/icons/close.png</file>
+        <file>settings/icons/reboot.png</file>
+        <file>settings/icons/theme.png</file>
     </qresource>
 </RCC>

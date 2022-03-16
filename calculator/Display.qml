@@ -149,7 +149,7 @@ Item {
                 id: operator
                 x: 6
                 font.pixelSize: display.fontSize
-                color: "white"
+                color: theme.theme_font_color
                 text: model.operator
             }
             Text {
@@ -158,7 +158,7 @@ Item {
                 anchors.right: parent.right
                 anchors.rightMargin: 22
                 text: model.operand
-                color: "white"
+                color: theme.theme_font_color
             }
             MouseArea {
                 anchors.fill: parent

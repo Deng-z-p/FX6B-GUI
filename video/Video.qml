@@ -11,7 +11,7 @@ Item {
         objectName: "video_Area"
         anchors.fill: parent
         width: parent.width; height: parent.height
-        color: theme.themecolor
+        color: theme.theme_bkg_color
         ListView{
             id: listFileView
             anchors.fill: parent
@@ -25,12 +25,12 @@ Item {
 
             delegate: Rectangle{
                 height: 50; width: parent.width
-                color: "#1F1E58"
+                color: theme.theme_bkg_color
                 Text {
                     anchors.centerIn: parent
                     text: fileBaseName
-                    color: "white"
-                    font.pixelSize: 20
+                    color: theme.theme_font_color
+                    font.pixelSize: theme.theme_font_size + 8
                 }
                 Rectangle{
                    anchors.left: parent.left
@@ -57,7 +57,7 @@ Item {
             id: rec_Exit
             visible: false
             anchors.fill: video_Area
-            color: theme.themecolor
+            color: "black"
             MouseArea{
                 anchors.fill: parent
                 onClicked:{

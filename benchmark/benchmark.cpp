@@ -10,7 +10,7 @@ Benchmark::~Benchmark()
 
 void Benchmark::benchmark_test_start(QString name, QStringList arg)
 {
-    QString path = QDir::currentPath();
+    QString path = "/qt/sbc-bench";
    // QStringList arguments;
 
     benchmark_process = new QProcess(this);
@@ -55,7 +55,7 @@ void Benchmark::QProcess_started()
 void Benchmark::QProcess_readyReadStandardOutput()
 {
     m_benchmark_resulttext = benchmark_process->readAllStandardOutput();
-    m_benchmark_resulttext.remove(QChar('\n'), Qt::CaseInsensitive);
+    //m_benchmark_resulttext.remove(QChar('\n'), Qt::CaseInsensitive);
 
     emit benchmark_resulttext_Changed();
 }

@@ -20,7 +20,7 @@ Item {
     Rectangle {
         id: choice_Area
         width: 200; height: parent.height
-        color: "#1F1E58"
+        color: theme.theme_bkg_color
         ButtonGroup {id: radioGroup}
         /*Add all RadioButton to one ButtonGroup,
         for easy to management and to get the text which cheched one*/
@@ -86,11 +86,12 @@ Item {
         id: text_Area
         width: parent.width - choice_Area.width; height: parent.height
         anchors.right: parent.right
-        color: "darkslategray"
+        //color: "darkslategray"
+        color: (theme.theme_bkg_color == "#1F1E58") ?  "darkslategray" : "white"
         Flickable {
             id: flick
             width: parent.width; height: parent.height
-            contentWidth: parent.width; contentHeight: benmarkText.height
+            contentWidth: benmarkText.width; contentHeight: benmarkText.height
             anchors.right: parent.right
             clip: true
             function ensureVisible(r)
@@ -106,7 +107,7 @@ Item {
             }
             TextEdit {
               id: benmarkText
-              width: text_Area.width
+              //width: text_Area.width
               focus: true
               readOnly: true
               onCursorRectangleChanged: {
