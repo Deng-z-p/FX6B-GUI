@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>desktop/WinStyleDesktop.qml</file>
+        <file>desktop/Desktop.qml</file>
         <file>calculator/Calbutton.qml</file>
         <file>calculator/calculator.js</file>
         <file>calculator/Calculator.qml</file>
@@ -10,20 +10,25 @@
         <file>benchmark/Benchmark.qml</file>
         <file>video/Video.qml</file>
         <file>fileview/Fileview.qml</file>
-        <file>desktop/icons/calculator.png</file>
-        <file>desktop/icons/folder.png</file>
-        <file>desktop/icons/video.png</file>
-        <file>fileview/icons/folder_file.png</file>
-        <file>fileview/icons/other_file.png</file>
         <file>desktop/icons/back.png</file>
-        <file>desktop/icons/benchmark.png</file>
         <file>calculator/icons/clean.png</file>
-        <file>desktop/icons/album.png</file>
         <file>album/Album.qml</file>
-        <file>desktop/icons/settings.png</file>
         <file>settings/Settings.qml</file>
         <file>settings/icons/close.png</file>
         <file>settings/icons/reboot.png</file>
         <file>settings/icons/theme.png</file>
+        <file>system/System.qml</file>
+        <file>system/icons/CPU.png</file>
+        <file>system/icons/emmc.png</file>
+        <file>system/icons/Memory.png</file>
+        <file>system/icons/screen.png</file>
+        <file>desktop/icons/album.png</file>
+        <file>desktop/icons/benchmark.png</file>
+        <file>desktop/icons/calculator.png</file>
+        <file>desktop/icons/folder.png</file>
+        <file>desktop/icons/settings.png</file>
+        <file>desktop/icons/system.png</file>
+        <file>desktop/icons/video.png</file>
+        <file>fileview/icons/file.png</file>
     </qresource>
 </RCC>

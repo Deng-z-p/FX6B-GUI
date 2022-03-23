@@ -8,6 +8,7 @@ import "./video"
 import "./fileview"
 import "./album"
 import "./settings"
+import "./system"
 
 Window {
     id: mainWindow
@@ -64,13 +65,14 @@ Window {
             anchors.fill: parent
             interactive: false
             orientation: ListView.Horizontal
-            WinStyleDesktop{}
+            Desktop{}
             Calculator{}
             Benchmark{}
             Video{}
             Fileview{}
             Album{}
             Settings{}
+            System{}
             onCurrentIndexChanged: {
                 mainSwipeView.currentItem.visible = true
                 for(var i=0; i<mainSwipeView.count; i++){
@@ -104,13 +106,13 @@ Window {
 //        anchors.fill: parent
 //        Rectangle{
 //            anchors.fill: parent
-//            color:theme.themecolor
+//            color:theme.theme_bkg_color
 //            Text {
 //                id: initializing_text
 //                anchors.centerIn: parent
 //                text: "Initializing, Just a moment, Please"
 //                color: "white"
-//                font.pixelSize: 30
+//                font.pixelSize: 50
 //                font.bold: true
 //            }
 //        }

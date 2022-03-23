@@ -1,11 +1,33 @@
 ﻿import QtQuick 2.12
 
 Item {
+    id: album_Item
     visible: false
+
+    onVisibleChanged: {
+        formState.state == "open" ? formState.state = "" : formState.state = "open"
+    }
+
+    Item {
+        id: formState
+        states: State{
+            name: "open"
+            PropertyChanges {
+                target: album_Item
+                rotation: 360
+            }
+        }
+        transitions: Transition {
+            RotationAnimation {
+                //direction: RotationAnimation.Counterclockwise
+                duration: 1500
+            }
+        }
+    }
     Rectangle{
         id: coverflow
         anchors.fill: parent
-
+        rotation: 0
         color: "black"
         property ListModel model
         property int itemCount: 3
