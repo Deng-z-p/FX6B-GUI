@@ -2,50 +2,183 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls 1.2
 import QtQuick.Controls.Styles 1.4
-
+import Package.desktop 1.0
 Item {
     id: desktop_Item
+    Desktop {
+        id: desktop
+        onCpurate_Changed: {
+            cpu0_Rate_Text.text = desktop.cpurate0 + '%'
+            cpu1_Rate_Text.text = desktop.cpurate1 + '%'
+        }
+    }
+    Timer {
+        id: desktop_Timer
+        interval: 1000
+        repeat: true
+        running: desktop_view.currentIndex == 0 ? true : false
+        onTriggered: {
+            desktop.read_meminfo()
+            memUsed_text.text = desktop.MemUsed + "KB"
+            memTotal_text.text = desktop.MemTotal + "KB"
+            sram_Rate.percent = desktop.MemUsed/desktop.MemTotal
 
+            uptime_Text.text = desktop.read_uptime()+'S'
+            desktop.read_cpurate()
+        }
+    }
     SwipeView{
         id: desktop_view
         anchors.fill: parent
         currentIndex: 1
         interactive: true
-
         Item{
             id: page0
             Rectangle{
-                id: cpu_Rate
-                anchors {
+                id: uptime
+                visible: false
+                anchors{
                     top: parent.top; topMargin: 10
-                    left: parent.left; leftMargin: 10
+                    horizontalCenter: parent.horizontalCenter
                 }
-                radius: 100
-                color: "#1296DB"
-                width: parent.height/4; height: parent.height/4
+                width: parent.width/3; height: parent.height/4
+                radius: 20
+                color: (theme.theme_bkg_color == "#1F1E58") ? "#2F2D84" : "#F0F0CD"
                 Text {
+                    id: uptime_Text
                     anchors.centerIn: parent
-                    font.pixelSize: theme.theme_font_size
-                    color: theme.theme_font_color
+                    font.pixelSize: theme.theme_font_size + 20
                     font.bold: true
-                    text: "cpu"
+                    color: theme.theme_font_color
+                }
+            }
+            Rectangle{
+                id: cpu_Rate_Area
+                anchors {
+                    top: page0.top; topMargin: 20
+                    left: page0.left; leftMargin: 20
+                    right: page0.right; rightMargin: 20
+                }
+                width: page0.width-40; height: page0.height/2
+                color: "transparent"
+                border.width: 10
+                border.color: (theme.theme_bkg_color == "#1F1E58") ? "#2F2D84" : "#F0F0CD"
+                radius: 20
+                Rectangle{
+                    id: cpu0_Rate
+                    anchors {
+                        top: parent.top; topMargin: 30
+                        left: parent.left; leftMargin: 30
+                    }
+                    width:parent.height - 60; height: width
+                    radius: width/2
+                    color: "transparent"
+                    border.width: 10
+                    border.color: (theme.theme_bkg_color == "#1F1E58") ? "#2F2D84" : "#F0F0CD"
+                    Text {
+                        id: cpu0_Rate_Text
+                        anchors.centerIn: parent
+                        font.pixelSize: theme.theme_font_size + 20
+                        color: theme.theme_font_color
+                        font.bold: true
+                    }
+                    Text {
+                        anchors.bottom: parent.bottom
+                        font.pixelSize: theme.theme_font_size + 10
+                        font.bold: true
+                        color: theme.theme_font_color
+                        text: "CPU0"
+                    }
+                }
+                Rectangle{
+                    id: cpu1_Rate
+                    anchors {
+                        top: parent.top; topMargin: 30
+                        left: cpu0_Rate.right; leftMargin: 30
+                    }
+                    width: parent.height - 60; height: width
+                    radius: width/2
+                    color: "transparent"
+                    border.width: 10
+                    border.color: (theme.theme_bkg_color == "#1F1E58") ? "#2F2D84" : "#F0F0CD"
+                    Text {
+                        id: cpu1_Rate_Text
+                        anchors.centerIn: parent
+                        font.pixelSize: theme.theme_font_size + 20
+                        color: theme.theme_font_color
+                        font.bold: true
+                    }
+                    Text {
+                        anchors.bottom: parent.bottom
+                        font.pixelSize: theme.theme_font_size + 10
+                        font.bold: true
+                        color: theme.theme_font_color
+                        text: "CPU1"
+                    }
                 }
             }
             Rectangle{
                 id: sram_Rate
-                anchors {
-                    top: cpu_Rate.bottom; topMargin: 10
-                    left: cpu_Rate.left; leftMargin: 10
+                visible: false
+//                anchors {
+//                    top: cpu_Rate.bottom; topMargin: 20
+//                    left: cpu_Rate.left
+//                }
+                width: parent.width/4; height: width
+                radius: width/2
+                color: "transparent"
+                border.width: 10
+                border.color: (theme.theme_bkg_color == "#1F1E58") ? "#2F2D84" : "#F0F0CD"
+                property var percent: 0
+                gradient: Gradient{
+                    GradientStop {position: 0; color: "transparent"}
+                    GradientStop {position: 1-sram_Rate.percent; color: "transparent"}
+                    GradientStop {position: 1-sram_Rate.percent+0.01; color: "lightcoral"}
                 }
-                radius: 100
-                color: "#1296DB"
-                width: parent.height/4; height: parent.height/4
-                Text {
+
+                Rectangle {
                     anchors.centerIn: parent
-                    font.pixelSize: theme.theme_font_size
-                    color: theme.theme_font_color
-                    font.bold: true
-                    text: "sram"
+                    width: parent.width / 2; height: parent.height /2
+                    color: "transparent"
+                    Text {
+                        id: memUsed_text
+                        anchors {
+                            centerIn: parent
+                            horizontalCenterOffset: -40
+                            verticalCenterOffset: -40
+                        }
+                       font.pixelSize: theme.theme_font_size + 10
+                       font.bold: true
+                       color: theme.theme_font_color
+                    }
+                    Text {
+                        id: memTotal_text
+                        anchors {
+                            centerIn: parent
+                            horizontalCenterOffset: 40
+                            verticalCenterOffset: 40
+                        }
+                        font.pixelSize: theme.theme_font_size + 10
+                        font.bold: true
+                        color: theme.theme_font_color
+                    }
+                    Canvas {
+                        id: sram_canvas
+                        anchors.fill: parent
+                        onPaint: {
+                            var ctx = getContext("2d")
+                            draw(ctx)
+                        }
+                        function draw(ctx) {
+                            ctx.strokeStyle = "red"
+                            ctx.lineWidth = 10
+                            ctx.beginPath()
+                            ctx.moveTo(0, parent.height)
+                            ctx.lineTo(parent.width, 0)
+                            ctx.stroke()
+                        }
+                    }
+
                 }
             }
         }

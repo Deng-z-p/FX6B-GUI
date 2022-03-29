@@ -15,6 +15,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         album/album.cpp \
         benchmark/benchmark.cpp \
+        desktop/desktop.cpp \
         fileview/fileio.cpp \
         main.cpp \
         settings/settings.cpp \
@@ -36,6 +37,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     album/album.h \
     benchmark/benchmark.h \
+    desktop/desktop.h \
     fileview/fileio.h \
     settings/settings.h \
     video/video.h

@@ -8,6 +8,7 @@
 #include "video/video.h"
 #include "album/album.h"
 #include "settings/settings.h"
+#include "desktop/desktop.h"
 
 int main(int argc, char *argv[])
 {
@@ -26,6 +27,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<FileIO>("Package.fileio", 1, 0, "FileIO");
     qmlRegisterType<Video>("Package.video", 1, 0, "Video");
     qmlRegisterType<Settings>("Package.settings", 1, 0, "Settings");
+    qmlRegisterType<Desktop>("Package.desktop", 1, 0, "Desktop");
 
     QQmlApplicationEngine engine;
 
