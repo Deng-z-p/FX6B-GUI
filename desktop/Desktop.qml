@@ -10,6 +10,8 @@ Item {
         onCpurate_Changed: {
             cpu0_Rate_Text.text = desktop.cpurate0 + '%'
             cpu1_Rate_Text.text = desktop.cpurate1 + '%'
+            cpu0_Rate.percent = desktop.cpurate0 / 100
+            cpu1_Rate.percent = desktop.cpurate1 / 100
         }
     }
     Timer {
@@ -35,24 +37,6 @@ Item {
         Item{
             id: page0
             Rectangle{
-                id: uptime
-                visible: false
-                anchors{
-                    top: parent.top; topMargin: 10
-                    horizontalCenter: parent.horizontalCenter
-                }
-                width: parent.width/3; height: parent.height/4
-                radius: 20
-                color: (theme.theme_bkg_color == "#1F1E58") ? "#2F2D84" : "#F0F0CD"
-                Text {
-                    id: uptime_Text
-                    anchors.centerIn: parent
-                    font.pixelSize: theme.theme_font_size + 20
-                    font.bold: true
-                    color: theme.theme_font_color
-                }
-            }
-            Rectangle{
                 id: cpu_Rate_Area
                 anchors {
                     top: page0.top; topMargin: 20
@@ -75,6 +59,12 @@ Item {
                     color: "transparent"
                     border.width: 10
                     border.color: (theme.theme_bkg_color == "#1F1E58") ? "#2F2D84" : "#F0F0CD"
+                    property var percent: 0
+                    gradient: Gradient{
+                        GradientStop {position: 0; color: "transparent"}
+                        GradientStop {position: 1-cpu0_Rate.percent; color: "transparent"}
+                        GradientStop {position: 1-cpu0_Rate.percent+0.01; color: "lightcoral"}
+                    }
                     Text {
                         id: cpu0_Rate_Text
                         anchors.centerIn: parent
@@ -101,6 +91,12 @@ Item {
                     color: "transparent"
                     border.width: 10
                     border.color: (theme.theme_bkg_color == "#1F1E58") ? "#2F2D84" : "#F0F0CD"
+                    property var percent: 0
+                    gradient: Gradient{
+                        GradientStop {position: 0; color: "transparent"}
+                        GradientStop {position: 1-cpu1_Rate.percent; color: "transparent"}
+                        GradientStop {position: 1-cpu1_Rate.percent+0.01; color: "lightcoral"}
+                    }
                     Text {
                         id: cpu1_Rate_Text
                         anchors.centerIn: parent
@@ -116,69 +112,86 @@ Item {
                         text: "CPU1"
                     }
                 }
+                Rectangle{
+                    id: sram_Rate
+                    anchors {
+                        top: parent.top; topMargin: 30
+                        left: cpu1_Rate.right; leftMargin: 30
+                    }
+                    width: parent.height - 60; height: width
+                    radius: width/2
+                    color: "transparent"
+                    border.width: 10
+                    border.color: (theme.theme_bkg_color == "#1F1E58") ? "#2F2D84" : "#F0F0CD"
+                    property var percent: 0
+                    gradient: Gradient{
+                        GradientStop {position: 0; color: "transparent"}
+                        GradientStop {position: 1-sram_Rate.percent; color: "transparent"}
+                        GradientStop {position: 1-sram_Rate.percent+0.01; color: "lightcoral"}
+                    }
+                    Rectangle {
+                        anchors.centerIn: parent
+                        width: parent.width / 2; height: parent.height /2
+                        color: "transparent"
+                        Text {
+                            id: memUsed_text
+                            anchors {
+                                centerIn: parent
+                                horizontalCenterOffset: -40
+                                verticalCenterOffset: -40
+                            }
+                           font.pixelSize: theme.theme_font_size + 10
+                           font.bold: true
+                           color: theme.theme_font_color
+                        }
+                        Text {
+                            id: memTotal_text
+                            anchors {
+                                centerIn: parent
+                                horizontalCenterOffset: 40
+                                verticalCenterOffset: 40
+                            }
+                            font.pixelSize: theme.theme_font_size + 10
+                            font.bold: true
+                            color: theme.theme_font_color
+                        }
+                        Canvas {
+                            id: sram_canvas
+                            anchors.fill: parent
+                            onPaint: {
+                                var ctx = getContext("2d")
+                                draw(ctx)
+                            }
+                            function draw(ctx) {
+                                ctx.strokeStyle = "red"
+                                ctx.lineWidth = 10
+                                ctx.beginPath()
+                                ctx.moveTo(0, parent.height)
+                                ctx.lineTo(parent.width, 0)
+                                ctx.stroke()
+                            }
+                        }
+                    }
+                }
             }
             Rectangle{
-                id: sram_Rate
-                visible: false
-//                anchors {
-//                    top: cpu_Rate.bottom; topMargin: 20
-//                    left: cpu_Rate.left
-//                }
-                width: parent.width/4; height: width
-                radius: width/2
+                id: uptime_Area
+                anchors{
+                    top: cpu_Rate_Area.bottom; topMargin: 20
+                    left: page0.left; leftMargin: 20
+                    right: page0.right; rightMargin: 20
+                }
+                width: page0.width-40; height: page0.height/2-80
                 color: "transparent"
                 border.width: 10
                 border.color: (theme.theme_bkg_color == "#1F1E58") ? "#2F2D84" : "#F0F0CD"
-                property var percent: 0
-                gradient: Gradient{
-                    GradientStop {position: 0; color: "transparent"}
-                    GradientStop {position: 1-sram_Rate.percent; color: "transparent"}
-                    GradientStop {position: 1-sram_Rate.percent+0.01; color: "lightcoral"}
-                }
-
-                Rectangle {
+                radius: 20
+                Text {
+                    id: uptime_Text
                     anchors.centerIn: parent
-                    width: parent.width / 2; height: parent.height /2
-                    color: "transparent"
-                    Text {
-                        id: memUsed_text
-                        anchors {
-                            centerIn: parent
-                            horizontalCenterOffset: -40
-                            verticalCenterOffset: -40
-                        }
-                       font.pixelSize: theme.theme_font_size + 10
-                       font.bold: true
-                       color: theme.theme_font_color
-                    }
-                    Text {
-                        id: memTotal_text
-                        anchors {
-                            centerIn: parent
-                            horizontalCenterOffset: 40
-                            verticalCenterOffset: 40
-                        }
-                        font.pixelSize: theme.theme_font_size + 10
-                        font.bold: true
-                        color: theme.theme_font_color
-                    }
-                    Canvas {
-                        id: sram_canvas
-                        anchors.fill: parent
-                        onPaint: {
-                            var ctx = getContext("2d")
-                            draw(ctx)
-                        }
-                        function draw(ctx) {
-                            ctx.strokeStyle = "red"
-                            ctx.lineWidth = 10
-                            ctx.beginPath()
-                            ctx.moveTo(0, parent.height)
-                            ctx.lineTo(parent.width, 0)
-                            ctx.stroke()
-                        }
-                    }
-
+                    font.pixelSize: theme.theme_font_size + 30
+                    font.bold: true
+                    color: theme.theme_font_color
                 }
             }
         }
