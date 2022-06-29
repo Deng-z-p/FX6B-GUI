@@ -82,39 +82,39 @@ Window {
             }
         }
     }
-//    Timer{
-//        id: initializing_Timer
-//        interval: 1000
-//        repeat: true
-//        running: true
-//        property int timerCount: 0
-//        onTriggered: {
-//            timerCount ++
-//            console.log("left-timer:", 4-timerCount)
-//            if(timerCount == 2){
-//                initializing_text.text = "Welcome"
-//            }
-//            if(timerCount == 4){
-//                initializing_item.visible = false
-//                initializing_Timer.running = false
-//            }
-//        }
-//    }
+    Timer{
+        id: initializing_Timer
+        interval: 1000
+        repeat: true
+        running: true
+        property int timerCount: 0
+        onTriggered: {
+            timerCount ++
+            console.log("left-timer:", 4-timerCount)
+            if(timerCount == 2){
+                initializing_text.text = "Welcome"
+            }
+            if(timerCount == 4){
+                initializing_item.visible = false
+                initializing_Timer.running = false
+            }
+        }
+    }
 
-//    Item{
-//        id: initializing_item
-//        anchors.fill: parent
-//        Rectangle{
-//            anchors.fill: parent
-//            color:theme.theme_bkg_color
-//            Text {
-//                id: initializing_text
-//                anchors.centerIn: parent
-//                text: "Initializing, Just a moment, Please"
-//                color: "white"
-//                font.pixelSize: 50
-//                font.bold: true
-//            }
-//        }
-//    }
+    Item{
+        id: initializing_item
+        anchors.fill: parent
+        Rectangle{
+            anchors.fill: parent
+            color:theme.theme_bkg_color
+            Text {
+                id: initializing_text
+                anchors.centerIn: parent
+                text: "Initializing, Just a moment, Please"
+                color: "white"
+                font.pixelSize: 50
+                font.bold: true
+            }
+        }
+    }
 }
